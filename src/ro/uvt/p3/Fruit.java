@@ -1,6 +1,6 @@
 package ro.uvt.p3;
 
-public abstract class Fruit {
+public abstract class Fruit implements Comparable<Fruit>{
     int weight;
     int sugarContent;
     int waterContent;
@@ -12,6 +12,23 @@ public abstract class Fruit {
         this.sugarContent = sugarContent;
         this.waterContent = waterContent;
         this.color = color;
+    }
+    @Override
+    public int compareTo(Fruit o) {
+        if(this.getWeight()>o.getWeight())
+            return 1;
+        else if (this.getWeight()<o.getWeight()) {
+            return -1;
+        } else if (this.getWeight()==o.getWeight()) {
+           if (this.getSugarContent()>o.getSugarContent()) {
+                return 1;
+            } else if (this.getSugarContent()<o.getSugarContent()) {
+               return -1;
+           } else if (this.getSugarContent()==o.getSugarContent()) {
+               return 0;
+           }
+        }
+        return 0;
     }
 
     public int getWeight() {

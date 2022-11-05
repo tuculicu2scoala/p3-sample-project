@@ -1,8 +1,10 @@
 package ro.uvt.p3;
 
 public class Banana extends Fruit implements Peelable{
-    public Banana(int weight, int sugarContent, int waterContent) {
+    boolean hasShell;
+    public Banana(int weight, int sugarContent, int waterContent,boolean hasShell) {
         super(weight, sugarContent, waterContent,Color.Yellow);
+        this.hasShell=hasShell;
     }
 
     @Override
@@ -12,6 +14,7 @@ public class Banana extends Fruit implements Peelable{
 
     @Override
     public void peelOff() {
-        this.weight=this.weight-1;//int of seeds
+        this.hasShell=false;
     }
+
 }
